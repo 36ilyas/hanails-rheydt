@@ -88,8 +88,8 @@ h1, h2, h3 { text-wrap: balance; }
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: min(100svh, 980px);
-  padding: 0 0 clamp(90px, 11vw, 170px);
+  min-height: min(86svh, 810px);
+  padding: 0 0 clamp(70px, 7.5vw, 120px);
 }
 
 /* Eigene Ebene für Hintergrund + diagonale Kante, damit das Foto
@@ -106,10 +106,10 @@ h1, h2, h3 { text-wrap: balance; }
 }
 
 .hero__mark {
-  width: 46px;
+  width: 40px;
   height: auto;
   color: var(--brand-light);
-  margin: 0 0 18px -3px;
+  margin: 0 0 14px -3px;
   display: block;
 }
 
@@ -171,7 +171,7 @@ h1, h2, h3 { text-wrap: balance; }
   max-width: 1560px;
   width: 100%;
   margin: 0 auto;
-  padding: clamp(48px, 6vw, 90px) 5vw 0;
+  padding: clamp(36px, 4vw, 62px) 5vw 0;
 }
 
 .hero__text { animation: rise .7s ease both; }
@@ -181,18 +181,18 @@ h1, h2, h3 { text-wrap: balance; }
   letter-spacing: .38em;
   text-transform: uppercase;
   color: #a8d6ec;
-  margin: 0 0 22px;
+  margin: 0 0 18px;
   font-weight: 400;
 }
 
 .hero h1 {
   font-family: var(--serif);
   font-weight: 300;
-  font-size: clamp(50px, 7.2vw, 122px);
+  font-size: clamp(46px, 5.6vw, 96px);
   line-height: .98;
   letter-spacing: -.01em;
   color: #fff;
-  margin: 0 0 28px;
+  margin: 0 0 24px;
 }
 
 .hero__lead {
@@ -200,7 +200,7 @@ h1, h2, h3 { text-wrap: balance; }
   line-height: 1.7;
   color: #e4f2f9dd;
   max-width: 46ch;
-  margin: 0 0 38px;
+  margin: 0 0 32px;
   font-weight: 300;
 }
 
@@ -213,7 +213,7 @@ h1, h2, h3 { text-wrap: balance; }
   flex-wrap: wrap;
   gap: 10px;
   padding: 0;
-  margin: 46px 0 0;
+  margin: 38px 0 0;
   font-size: 11px;
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -228,8 +228,8 @@ h1, h2, h3 { text-wrap: balance; }
 
 .hero__media {
   position: relative;
-  height: clamp(340px, 46vw, 620px);
-  margin-bottom: clamp(-110px, -6vw, -40px);
+  height: clamp(320px, 37vw, 505px);
+  margin-bottom: clamp(-80px, -4.5vw, -32px);
   animation: rise .8s .12s ease both;
 }
 .hero__media::after {
