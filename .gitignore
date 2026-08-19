@@ -1,0 +1,6 @@
+# Claude-Design-Quelldateien und Editor-Artefakte (nicht Teil der Website)
+support.js
+image-slot.js
+.thumbnail
+uploads/
+*.dc.html
