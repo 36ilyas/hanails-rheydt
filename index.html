@@ -62,7 +62,9 @@
       <span class="brand__name">HA&rsquo;S NAILS</span>
       <span class="brand__sub">RHEYDT &middot; NAGELSTUDIO</span>
     </a>
-    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav">Menü</button>
+    <button class="burger" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
     <nav class="nav" id="mainNav">
       <a href="#studio">Studio</a>
       <a href="#leistungen">Leistungen</a>
@@ -75,15 +77,6 @@
 
   <div class="hero__grid" id="top">
     <div class="hero__text">
-      <svg class="hero__mark" viewBox="0 0 64 44" fill="none" stroke="currentColor" stroke-width="1.3"
-           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M32 12v24"/>
-        <path d="M32 14c-2-6-8-11-14-11-5 0-8 3-8 8 0 6 5 10 11 12 4 1.4 8 2.5 11 3.6"/>
-        <path d="M32 14c2-6 8-11 14-11 5 0 8 3 8 8 0 6-5 10-11 12-4 1.4-8 2.5-11 3.6"/>
-        <path d="M32 26c-2.4 5-6.4 9-11 10.6-3.4 1.2-6 .2-6-2.6 0-3 3-5.4 7-6.6"/>
-        <path d="M32 26c2.4 5 6.4 9 11 10.6 3.4 1.2 6 .2 6-2.6 0-3-3-5.4-7-6.6"/>
-        <path d="M32 12c-1.6-3-3-5-3-7 0-1.6 1.4-3 3-3s3 1.4 3 3c0 2-1.4 4-3 7"/>
-      </svg>
       <p class="hero__eyebrow">Nagelstudio in Mönchengladbach-Rheydt</p>
       <h1>Schöne Nägel,<br>ganz einfach.</h1>
       <p class="hero__lead">Gelmodellage, Mani- und Pediküre mitten in Rheydt. Wir nehmen uns Zeit für deine Nägel &ndash; mit oder ohne Termin.</p>
@@ -127,15 +120,7 @@
 
 <!-- ============ CLAIM ============ -->
 <section class="claim">
-  <svg class="claim__mark" viewBox="0 0 64 44" fill="none" stroke="currentColor" stroke-width="1.3"
-       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <path d="M32 12v24"/>
-    <path d="M32 14c-2-6-8-11-14-11-5 0-8 3-8 8 0 6 5 10 11 12 4 1.4 8 2.5 11 3.6"/>
-    <path d="M32 14c2-6 8-11 14-11 5 0 8 3 8 8 0 6-5 10-11 12-4 1.4-8 2.5-11 3.6"/>
-    <path d="M32 26c-2.4 5-6.4 9-11 10.6-3.4 1.2-6 .2-6-2.6 0-3 3-5.4 7-6.6"/>
-    <path d="M32 26c2.4 5 6.4 9 11 10.6 3.4 1.2 6 .2 6-2.6 0-3-3-5.4-7-6.6"/>
-    <path d="M32 12c-1.6-3-3-5-3-7 0-1.6 1.4-3 3-3s3 1.4 3 3c0 2-1.4 4-3 7"/>
-  </svg>
+  <div class="claim__rule"></div>
   <p class="eyebrow">Zeit für dich</p>
   <h2>Ruhe, Kaffee &amp; Nägel.</h2>
 </section>
@@ -285,14 +270,25 @@
   (function () {
     var toggle = document.getElementById('navToggle');
     var nav = document.getElementById('mainNav');
-    toggle.addEventListener('click', function () {
-      var open = nav.classList.toggle('is-open');
+
+    function setMenu(open) {
+      nav.classList.toggle('is-open', open);
+      toggle.classList.toggle('is-active', open);
+      document.body.classList.toggle('nav-open', open);
       toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+    }
+
+    toggle.addEventListener('click', function () {
+      setMenu(!nav.classList.contains('is-open'));
     });
     nav.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') {
-        nav.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
+      if (e.target.tagName === 'A') setMenu(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+        setMenu(false);
+        toggle.focus();
       }
     });
 
